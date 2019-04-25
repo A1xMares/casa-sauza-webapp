@@ -1,8 +1,8 @@
-import {RouterModule, Routes} from "@angular/router";
-import {DashboardComponent} from "./dashboard/dashboard.component";
-import {MachinesComponent} from "./machines/machines.component";
-import {UsersComponent} from "./users/users.component";
-import {ImportsComponent} from "./imports/imports.component";
+import {RouterModule, Routes} from '@angular/router';
+import {DashboardComponent} from './dashboard/dashboard.component';
+import {MachinesComponent} from './machines/machines.component';
+import {UsersComponent} from './users/users.component';
+import {ImportsComponent} from './imports/imports.component';
 
 const pagesRoutes: Routes = [
   {
@@ -18,24 +18,24 @@ const pagesRoutes: Routes = [
     }
   },
   {
-    path: 'machines',
+    path: 'maquinaria',
     component: MachinesComponent,
     data: {
-      title: 'Machine'
+      title: 'Maquinaria'
     }
   },
   {
-    path: 'users',
+    path: 'usuarios',
     component: UsersComponent,
     data: {
-      title: 'Users'
+      title: 'Usuarios'
     }
   },
   {
-    path: 'imports',
+    path: 'importaciones',
     component: ImportsComponent,
     data: {
-      title: 'Imports'
+      title: 'Importaiones'
     }
   }
 ];

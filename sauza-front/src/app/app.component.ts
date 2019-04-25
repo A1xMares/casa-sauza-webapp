@@ -1,20 +1,22 @@
 import {Component, OnDestroy} from '@angular/core';
-import {Subject} from "rxjs";
-import {Overlay, OverlayRef} from "@angular/cdk/overlay";
-import {LoadingService} from "./services/loading/loading.service";
-import {ComponentPortal} from "@angular/cdk/portal";
-import {takeUntil} from "rxjs/operators";
+import {Subject} from 'rxjs';
+import {Overlay, OverlayRef} from '@angular/cdk/overlay';
+import {LoadingService} from './services/loading/loading.service';
+import {ComponentPortal} from '@angular/cdk/portal';
+import {takeUntil} from 'rxjs/operators';
+
 @Component({
-  selector: 'loader',
+  selector: 'app-loader',
   template: '<mat-spinner></mat-spinner>',
 })
 export class LoaderComponent {}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements  OnDestroy{
+export class AppComponent implements  OnDestroy {
   title = 'Sauza';
   private onDestroy = new Subject<void>();
   private overlayRef: OverlayRef;

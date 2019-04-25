@@ -1,0 +1,11 @@
+.cardImgContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.machineCardImg {
+  max-width: 55%;
+}
+::ng-deep .mat-card-actions, .mat-card-content, .mat-card-subtitle {
+  margin: 0 !important;
+}

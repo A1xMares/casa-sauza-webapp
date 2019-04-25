@@ -1,7 +1,7 @@
 // ----------------------------------------------------//
 // This class helps to generate web requests to server //
 // ----------------------------------------------------//
-import {Injectable} from "@angular/core";
+import {Injectable} from '@angular/core';
 
 @Injectable({
     providedIn: 'root'

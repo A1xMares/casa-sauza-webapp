@@ -1,3 +1,100 @@
-<p>
-  machines works!
-</p>
+<!----------------------->
+<!-- page container -->
+<div class="container-fluid fullHeight">
+  <!----------------------->
+  <!-- filters row -->
+  <div class="row">
+    <div class="col-12 col-xl-6 pageTitleCell">
+      <h2>Maquinaria</h2>
+    </div>
+    <!----------------------->
+    <!-- searchbar -->
+    <!--<div class="col-6 col-md-3 col-xl-2">
+      <mat-form-field appearance="outline">
+        <mat-label>Buscar</mat-label>
+        <input matInput type="text" placeholder="Buscar..." [formControl]="searchbar">
+        <button mat-button *ngIf="searchbar.value" matSuffix mat-icon-button aria-label="Clear" (click)="searchbar.setValue('')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>-->
+    <!----------------------->
+    <!-- area filter -->
+    <div class="col-6 col-sm-4 col-xl-2">
+      <mat-form-field appearance="outline">
+        <mat-label>Area</mat-label>
+        <mat-select [formControl]="area" (selectionChange)="this.loadMachines(this.searchbar.value, $event.value, this.type.value)">
+          <mat-option disabled>Selecciona un area</mat-option>
+          <mat-option>Todas las areas</mat-option>
+          <mat-option *ngFor="let area of areas" [value]="area.id">
+            {{area.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!----------------------->
+    <!-- machine filter -->
+    <div class="col-6 col-sm-4 col-xl-2">
+      <mat-form-field appearance="outline">
+        <mat-label>Tipo de máquina</mat-label>
+        <mat-select [formControl]="type" (selectionChange)="this.loadMachines(searchbar.value, area.value, $event.value)">
+          <mat-option disabled>Selecciona un tipo</mat-option>
+          <mat-option>Todos los tipos</mat-option>
+          <mat-option *ngFor="let type of machineTypes" [value]="type.id">
+            {{type.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!----------------------->
+    <!-- new user button -->
+    <div class="col-12 col-sm-4 col-xl-2">
+      <button class="primaryButton fullWidth" matRipple (click)="newMachine()">
+        <mat-icon>add_circle_outline</mat-icon>
+        <span>Nueva máquina</span>
+      </button>
+    </div>
+  </div>
+  <!----------------------->
+  <!-- loading spinner -->
+  <div class="tableLoaderContainer" *ngIf="firstLoad">
+    <mat-spinner></mat-spinner>
+  </div>
+  <!----------------------->
+  <!-- not found container -->
+  <div #noData>
+    <!----------------------->
+    <!-- not found message -->
+    <div class="tableLoaderContainer fadeIn" *ngIf="!firstLoad">
+      <p>No se encontraron datos</p>
+    </div>
+  </div>
+  <!----------------------->
+  <!-- data container -->
+  <div #displayData class="fadeIn hidden">
+    <!----------------------->
+    <!-- table card -->
+      <div class="cardswrapper">
+        <div class="cardsFixer">
+          <mat-card class="list-card" *ngFor="let machine of machines">
+            <div class="cardImgContainer">
+              <img src="../../../assets/img/machine_types/envasado.svg" class="machineCardImg">
+            </div>
+            <mat-card-header>
+              <mat-card-title>
+                <h2 class="cardTitle">{{ machine.machine_name }}</h2>
+              </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+              <p class="margBottom10"> <strong>Area:</strong> {{ machine.area.name }}</p>
+              <p> <strong>Tipo:</strong> {{ machine.machine_type.name }}</p>
+            </mat-card-content>
+            <mat-card-actions align="end">
+              <button mat-button>Detalles</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+  </div>
+
+</div>

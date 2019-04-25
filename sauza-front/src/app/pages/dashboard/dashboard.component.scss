@@ -1,0 +1,14 @@
+.dash-card {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  margin-bottom: 20px;
+}
+.dash-card-data {
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  flex-direction: column;
+  width: 100% !important;
+  padding-right: 10px;
+}

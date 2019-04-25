@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 export class ApiService {
   // Local variables //
   private url = 'http://localhost:3000/api/';
-  private imageUrl = 'https://megapi.aleate.com/api/Containers/uploads.aleate.com/upload';
   public currentUserValue = {};
   // Constructor //
   constructor(
@@ -42,19 +41,5 @@ export class ApiService {
   // Obtain data from external services //
   getGenericDataObjects(query: string) {
     return this.http.get(query);
-  }
-  // Add image to the bucket
-  addImage(image: File, id: string) {
-    const formData = new FormData();
-    formData.append('image', image, id);
-    return this.http.post(this.imageUrl, formData);
-  }
-  // Add image object (multiple images) to the bucket
-  addImageObject(image: File[], id: string[]) {
-    const formData = new FormData();
-    for (let x = 0; x < image.length; x++) {
-      formData.append('image', image[x], id[x]);
-    }
-    return this.http.post(this.imageUrl, formData);
   }
 }

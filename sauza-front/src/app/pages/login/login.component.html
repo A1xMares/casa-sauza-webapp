@@ -1,3 +1,29 @@
-<p>
-  login works!
-</p>
+<!-- ============================================================== -->
+<!-- Main wrapper -->
+<!-- ============================================================== -->
+<div class="blackBack fullWScreen fullHScreen">
+  <div id="loginBackWrapper"></div>
+  <form [formGroup]="loginForm" (ngSubmit)="performLogin()">
+    <div class="center" id="formWrapper">
+      <img id="logoImg" src="../../../assets/img/logos/white_letters_logo.png" alt="logo sauza">
+      <div class="block loginSizes">
+        <mat-form-field appearance="fill">
+          <mat-label>Usuario</mat-label>
+          <input matInput type="text" formControlName="username" required>
+          <mat-icon matSuffix>person</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="block loginSizes">
+        <mat-form-field appearance="fill" id="password">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" formControlName="password" required>
+          <mat-icon matSuffix>vpn_key</mat-icon>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button class="whiteRoundedButton block" id="loginButton" type="submit" aria-label="Iniciar sesión">Iniciar sesión</button>
+    </div>
+  </form>
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->

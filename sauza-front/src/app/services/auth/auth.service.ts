@@ -35,7 +35,7 @@ export class AuthService implements OnDestroy {
   // Perform login request //
   // --------------------- //
   login(credentials: any) {
-    return this.http.post(this.url + 'AppUsers/login?include=user', credentials).pipe(map((user: any) => {
+    return this.http.post(this.url + 'users/login?include=user', credentials).pipe(map((user: any) => {
       if (user && user.id) {
         localStorage.setItem('currentUser', JSON.stringify(user));
         this.currentUserSubject.next(user);
@@ -49,7 +49,7 @@ export class AuthService implements OnDestroy {
   logout(req: boolean) {
     if (req) {
       this.http.post<any>(
-          this.url + 'AppUsers/logout',
+          this.url + 'users/logout',
           '',
       ).pipe(takeUntil(this.onDestroy)).subscribe(() => {
         this.cleanSession();
